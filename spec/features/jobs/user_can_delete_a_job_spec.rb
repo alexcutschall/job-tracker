@@ -8,9 +8,9 @@ describe "User can delete a job" do
                               level_of_interest: 5,
                               city: "Portland")
 
-    visit company_path(company)
-    click_button "Delete"
+    visit job_path(job)
+    click_link "Delete"
 
-    expect(page).to_not have_content(job.title)
+    expect(page).to have_content("#{job.title} was deleted!")
   end
 end
