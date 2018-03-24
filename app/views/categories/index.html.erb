@@ -1,0 +1,13 @@
+<h3>Job Categories</h3>
+<%= link_to "Create A New Category", new_category_path %>
+
+<ul>
+  <% @categories.each do |category| %>
+  <li class=category_<%= category.id %>>
+    <%= link_to "Edit", edit_category_path(category) %>
+    <%= link_to "Delete", category_path(category), method: "delete" %>
+    <%= category.title %>
+    <%= link_to "#{category.jobs.count} Jobs", category_path(category) %>:
+  </li>
+  <% end %>
+</ul>
