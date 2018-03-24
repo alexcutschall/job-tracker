@@ -7,12 +7,12 @@ class JobCommentsController < ApplicationController
 
     @job_comment.save
 
-    redirect_to company_job_path(@job_comment.job)
+    redirect_to job_path(Job.find(params[:job_id]))
   end
 
   private
 
   def job_comment_params
-    params.require(:comment).permit(:body)
+    params.require(:job_comment).permit(:body)
   end
 end
