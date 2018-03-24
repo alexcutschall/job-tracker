@@ -15,6 +15,10 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
+
+    def show
+      @category = Category.find(params[:id])
+    end
   end
 
   private
