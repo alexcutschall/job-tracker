@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20180324164246) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "job_comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_job_comments_on_job_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -38,5 +46,6 @@ ActiveRecord::Schema.define(version: 20180324164246) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
+  add_foreign_key "job_comments", "jobs"
   add_foreign_key "jobs", "companies"
 end
