@@ -1,5 +1,10 @@
 <%= form_for [@company, @job] do |f| %>
 <p>
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id, Category.all, :id, :title %>
+</p>
+<a href="/categories/new">Add a New Category</a>
+<p>
   <%= f.label :title %>
   <%= f.text_field :title %>
 </p>

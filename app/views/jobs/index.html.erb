@@ -3,3 +3,5 @@ All Jobs for <strong><%= @company.name %></strong>
 <% @jobs.each do |job| %>
   <a href="/companies/<%= "#{job.company_id}" %>/jobs/<%= "#{job.id}"  %>"> <ul><%= job.title %></a> at <%= job.company.name %></ul>
 <% end %>
+
+<a href="/companies/<%= @company.id %>/jobs/new">Create a New Job</a>

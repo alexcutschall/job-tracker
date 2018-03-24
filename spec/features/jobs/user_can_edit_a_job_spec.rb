@@ -10,11 +10,11 @@ describe "User edits a job" do
 
     visit edit_company_job_path(company, job)
 
-    # select 'Management', :from => 'Category'
+    select('Management', :from => 'edit_job')
     fill_in "job[title]", with: "Senior Engineer"
     fill_in "job[city]", with: "Seattle"
     fill_in "job[description]", with: "Leading an engineering team"
-    # select 5, :from => 'Interest'
+    select 5, :from => 'Interest'
 
     click_button "Update Job"
 
