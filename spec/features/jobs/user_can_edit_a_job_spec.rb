@@ -10,13 +10,13 @@ describe "User edits a job" do
 
     visit edit_company_job_path(company, job)
 
-    select 'Management', :from => 'Category'
+    # select 'Management', :from => 'Category'
     fill_in "job[title]", with: "Senior Engineer"
     fill_in "job[city]", with: "Seattle"
     fill_in "job[description]", with: "Leading an engineering team"
-    select 5, :from => 'Interest'
+    # select 5, :from => 'Interest'
 
-    click_button "Submit"
+    click_button "Update Job"
 
     expect(page).to have_content("Senior Engineer")
     expect(page).to have_content("Seattle")
