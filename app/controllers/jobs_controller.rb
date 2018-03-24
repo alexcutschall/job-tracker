@@ -28,15 +28,26 @@ class JobsController < ApplicationController
   end
 
   def edit
-    #has the set job
+    @company = Company.find(params[:company_id])
   end
 
   def update
-    # implement on your own!
+    @company = Company.find(params[:company_id])
+    @job = Job.update(job_params)
+    if @job.save
+      flash[:success] = "#{@job.title} from #{@company.name} was updated!"
+      redirect_to company_job_path(company, job)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    # implement on your own!
+    @company = Company.find(params[:company_id])
+    @job = Job.find(params[:id])
+    @job.destroy
+
+    flash[:success] = "#{@job.title} was deleted from #{@company.name}!"
   end
 
   private
