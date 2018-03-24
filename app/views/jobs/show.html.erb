@@ -11,3 +11,10 @@ City: <%= @job.city %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+Notes: <% @job.job_comments.each do |comment| %>
+<%= comment.body %>
+<% end %>
+
+<br /><%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
+<%= link_to "Delete", job_path(@job), method: "delete" %>

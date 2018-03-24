@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   # before_action :set_company [:index, :new, :create, :update]
-  before_action :set_job, only: [:edit]
+  before_action :set_job, only: [:edit, :update]
 
   def index
     @company = Company.find(params[:company_id])
@@ -28,26 +28,22 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:company_id])
+
   end
 
   def update
-    @company = Company.find(params[:company_id])
-    @job = Job.update(job_params)
-    if @job.save
-      flash[:success] = "#{@job.title} from #{@company.name} was updated!"
-      redirect_to company_job_path(company, job)
-    else
-      render :edit
-    end
+    @job.update(job_params)
+
+    flash.notice = "#{@job.title} was updated!"
+    redirect_to company_job_path(@job)
   end
 
   def destroy
-    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
     @job.destroy
 
-    flash[:success] = "#{@job.title} was deleted from #{@company.name}!"
+    flash[:success] = "#{@job.title} was deleted!"
+    redirect_to company_path(@job.company)
   end
 
   private
