@@ -5,7 +5,7 @@
   <% @categories.each do |category| %>
   <li class=category_<%= category.id %>>
     <%= link_to "Edit", edit_category_path(category) %>
-    <%= link_to "Delete", category_path(category), method: "delete" %>
+    <%= link_to "Delete", category_path(category), method: "delete", data: {confirm: "Are you sure you want to delete this category?"} %>
     <%= category.title %>
     <%= link_to "#{category.jobs.count} Jobs", category_path(category) %>:
   </li>
