@@ -1,3 +1,4 @@
+<%= render partial: "partial/navigation" %>
 <h1>Current Jobs</h1></br>
 <%= link_to "Create a New Job", new_job_path %>
 <br>
@@ -8,8 +9,8 @@
   <th>Role</th>
   <th>Category</th>
   <th>Company</th>
-  <th>City</th>
-  <th>Interest</th>
+  <th><%= link_to "City", "/jobs?sort=location" %></th>
+  <th><%= link_to "Interest", "/jobs?sort=interest" %></th>
   <% @jobs.each do |job| %>
     <tr>
       <td><%= link_to "Edit", edit_job_path(job) %></td>

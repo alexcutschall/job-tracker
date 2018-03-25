@@ -8,6 +8,10 @@ class JobsController < ApplicationController
     elsif params[:category]
       @jobs = Job.where(category_id: params[:category])
       render partial: "category"
+    elsif params[:sort] && params[:sort] == "location"
+      @jobs = Job.sort_by_location
+    elsif params[:sort] && params[:sort] == "interest"
+      @jobs = Job.sort_by_interest
     else
       @jobs = Job.all
     end
