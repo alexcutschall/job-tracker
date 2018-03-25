@@ -5,14 +5,14 @@
   <th> </th>
   <th> </th>
   <th>Role</th>
-  <th>Comany</th>
+  <th>Company</th>
   <th><a href="">City</a></th>
   <th><a href="">Interest</a></th>
   <% @jobs.each do |job| %>
     <tr>
       <td><%= link_to "Edit", edit_job_path(job) %></td>
-      <td><%= link_to "Delete", jobs_path(job), method: "delete" %></td>
-      <td><%= job.title %></td>
+      <td><%= link_to "Delete", job_path(job), method: "delete", data: {confirm: "Are you sure you want to delete #{job.title}?"} %></td>
+      <td><%= link_to job.title, job_path(job) %></td>
       <td><%= job.company.name %></td>
       <td><%= job.city %></td>
       <td><%= job.level_of_interest %></td>

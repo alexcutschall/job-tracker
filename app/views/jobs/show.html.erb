@@ -1,8 +1,9 @@
 Title: <%= @job.title %>
 <br>
 
-Category: <%= @job.category.title %>
-<br>
+<% if @job.category != nil %>
+  Category: <%= @job.category.title %><br>
+<% end %>
 
 Description: <%= @job.description %>
 <br>
@@ -13,7 +14,7 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+Company: <%= link_to @job.company.name, company_path(@job.company.id) %>
 
 Notes:<br />
 
