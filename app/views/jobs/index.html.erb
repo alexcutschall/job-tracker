@@ -5,3 +5,19 @@ All Jobs for <strong><%= @company.name %></strong>
 <% end %>
 
 <a href="/companies/<%= @company.id %>/jobs/new">Create a New Job</a>
+<br>
+<br>
+
+Existing Contacts:
+<br>
+<% @company.contacts.each do |contact| %>
+<ul>
+  <%= contact.full_name %>
+  <%= contact.position %>
+  <%= contact.email %><br>
+  <%= link_to "Edit", edit_company_contact_path(contact) %>
+  <%= link_to "Delete", company_contact_path(contact), method: "delete" %>
+</ul>
+<% end %>
+
+<%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %>
