@@ -1,0 +1,9 @@
+<h3>Post a comment</h3>
+<%= form_for [@job, @job_comment] do |f| %>
+  <p>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

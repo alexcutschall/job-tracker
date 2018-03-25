@@ -12,8 +12,12 @@ City: <%= @job.city %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-Notes: <% @job.job_comments.each do |comment| %>
-<%= comment.body %>
+Notes:<br />
+
+<%= render partial: "job_comments/form" %>
+<% @job.job_comments.each do |comment| %>
+  <%= comment.created_at %>
+  <%= comment.body %><br />
 <% end %>
 
 <br /><%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
