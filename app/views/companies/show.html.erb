@@ -3,3 +3,17 @@
 <% @company.jobs.each do |job| %>
   <%= link_to job.title, job_path(job) %></a><br>
 <% end %>
+
+Existing Contacts:
+<br>
+<div id="contact-info">
+<% @company.contacts.each do |contact| %>
+  <%= contact.full_name %>
+  <%= contact.position %>
+  <%= contact.email %><br>
+  <%= link_to "Edit Contact", edit_company_contact_path(@company, contact) %>
+  <%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete" %>
+<% end %>
+</div>
+
+<%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %>
