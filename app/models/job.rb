@@ -3,5 +3,5 @@ class Job < ApplicationRecord
 
   belongs_to :category
   belongs_to :company
-  has_many :job_comments
+  has_many :job_comments, dependent: :destroy
 end
