@@ -14,6 +14,8 @@ describe "User creates a new contact" do
       fill_in "contact[email]", with: "jeff@hotmail.com"
       fill_in "contact[position]", with: "Executive Director"
 
+      click_button "Submit"
+
       expect(page).to have_content("Jeff Casimir")
       expect(page).to have_content("jeff@hotmail.com")
       expect(page).to have_content("Executive Director")

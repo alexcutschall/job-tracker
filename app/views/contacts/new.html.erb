@@ -1,18 +1,2 @@
 <h3>Add a contact</h3>
-<%= form_for [@company, @contact] do |f| %>
-  <p>
-    <%= f.label :full_name %>
-    <%= f.text_field :full_name %>
-  </p>
-  <p>
-    <%= f.label :role %>
-    <%= f.text_field :position %>
-  </p>
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
-<% end %>
+<%= render partial: "form" %>
