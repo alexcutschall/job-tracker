@@ -15,6 +15,5 @@ Existing Contacts:
   <%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete",
   data: {confirm:"Really delete this contact?"}%>
 <% end %>
-</div>
 
 <%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %>
