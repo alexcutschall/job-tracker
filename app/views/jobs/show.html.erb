@@ -25,4 +25,5 @@ Notes:<br />
 <% end %>
 
 <br /><%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
-<%= link_to "Delete", job_path(@job), method: "delete" %>
+<%= link_to "Delete", job_path(@job), method: "delete",
+data: {confirm:"Really delete this job?"} %>

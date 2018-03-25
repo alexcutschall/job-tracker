@@ -6,14 +6,14 @@
 
 Existing Contacts:
 <br>
+<div id="contact-info">
 <% @company.contacts.each do |contact| %>
-<ul>
   <%= contact.full_name %>
   <%= contact.position %>
   <%= contact.email %><br>
-  <%= link_to "Edit", edit_company_contact_path(contact) %>
-  <%= link_to "Delete", company_contact_path(contact), method: "delete" %>
-</ul>
+  <%= link_to "Edit Contact", edit_company_contact_path(@company, contact) %>
+  <%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete",
+  data: {confirm:"Really delete this contact?"}%>
 <% end %>
 
 <%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %>

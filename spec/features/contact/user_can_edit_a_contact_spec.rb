@@ -6,13 +6,16 @@ describe "User edits a contact" do
       category = Category.create!(title: "Development")
       company = Company.create!(name: "Turing")
       job = company.jobs.create!(category_id: category.id, title: "Developer", level_of_interest: 70, city: "Denver")
-      visit company_jobs_path(company)
+      contact = company.contacts.create!(full_name: "To Edit", email: "to_edit@edit.com", position: "deleter")
+      visit company_path(company)
 
       click_link "Edit Contact"
 
       fill_in "contact[full_name]", with: "Jeff Casimir"
       fill_in "contact[email]", with: "jeff@hotmail.com"
       fill_in "contact[position]", with: "Executive Director"
+
+      click_button "Submit"
 
       expect(page).to have_content("Jeff Casimir")
       expect(page).to have_content("jeff@hotmail.com")
