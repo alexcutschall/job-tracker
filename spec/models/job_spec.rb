@@ -40,15 +40,15 @@ describe Job do
     end
   end
 
-  # describe "has comments" do
-  #   it "can order comments" do
+  # describe "#sort_by_location" do
+  #   it "can sort by location" do
   #     category = Category.create!(title: "Management")
   #     company = Company.create!(name: "Disney")
   #     job = Job.create!(title: "Animation Developer", level_of_interest: 5, description: "Wahooo", city: "Denver", company_id: company.id, category_id: category.id)
-  #     comment_1 = job.job_comments.create!(body: "This is a comment")
-  #     comment_2 = job.job_comments.create!(body: "This is another comment")
+  #     job = Job.create!(title: "Senior Developer", level_of_interest: 1, description: "Wahooo", city: "Minneapolis", company_id: company.id, category_id: category.id)
+  #     job = Job.create!(title: "Junior Developer", level_of_interest: 5, description: "Wahooo", city: "Seattle", company_id: company.id, category_id: category.id)
   #
-  #     visit job_path(job)
+  #     click_link "City"
   #
   #     expect(page).to have_content(comment_1)
   #     expect(page).to have_content(comment_2)
