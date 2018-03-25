@@ -1,6 +1,4 @@
-<h1>Current Jobs</h1></br>
-<%= link_to "Create a New Job", new_job_path %>
-<br>
+<h1><%= @jobs.first.category.title %> Jobs</h1>
 
 <table>
   <th> </th>
@@ -15,11 +13,7 @@
       <td><%= link_to "Edit", edit_job_path(job) %></td>
       <td><%= link_to "Delete", job_path(job), method: "delete", data: {confirm: "Are you sure you want to delete #{job.title}?"} %></td>
       <td><%= link_to job.title, job_path(job) %></td>
-      <% if job.category != nil %>
-        <td><%= link_to job.category.title, "/jobs?category=#{job.category.id}" %></td>
-      <% else %>
-        <td> </td>
-      <% end %>
+      <td><%= link_to job.category.title, "/jobs?category=#{job.category.id}" %></td>
       <td><%= job.company.name %></td>
       <td><%= link_to job.city, "/jobs?location=#{job.city}" %></td>
       <td><%= job.level_of_interest %></td>

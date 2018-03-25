@@ -1,9 +1,16 @@
 class JobsController < ApplicationController
-  # before_action :set_company [:index, :new, :create, :update]
   before_action :set_job, only: [:edit, :update]
 
   def index
-    @jobs = Job.all
+    if params[:location]
+      @jobs = Job.where(city: params[:location])
+      render partial: "location"
+    elsif params[:category]
+      @jobs = Job.where(category_id: params[:category])
+      render partial: "category"
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
