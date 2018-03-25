@@ -25,6 +25,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @job_comment = JobComment.new
+    @job_comment.job_id = @job.id
   end
 
   def edit
