@@ -3,21 +3,18 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update]
 
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    @jobs = Job.all
   end
 
   def new
-    @company = Company.find(params[:company_id])
     @job = Job.new()
   end
 
   def create
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.new(job_params)
+    @job = Job.create!(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
+      flash[:success] = "You created #{@job.title} at #{@job.company.name}"
+      redirect_to jobs_path
     else
       render :new
     end
@@ -45,13 +42,13 @@ class JobsController < ApplicationController
     @job.destroy
 
     flash[:success] = "#{@job.title} was deleted!"
-    redirect_to company_path(@job.company)
+    redirect_to jobs_path
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id, :company_id)
   end
 
   def set_job
