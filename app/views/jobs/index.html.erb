@@ -1,7 +1,22 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h1>Current Jobs</h1></br>
+<a href="/jobs/new">Create a New Job</a>
 
-<% @jobs.each do |job| %>
-  <a href="/companies/<%= "#{job.company_id}" %>/jobs/<%= "#{job.id}"  %>"> <ul><%= job.title %></a> at <%= job.company.name %></ul>
-<% end %>
-
-<a href="/companies/<%= @company.id %>/jobs/new">Create a New Job</a>
+<table>
+  <th> </th>
+  <th> </th>
+  <th>Role</th>
+  <th>Comany</th>
+  <th><a href="">City</a></th>
+  <th><a href="">Interest</a></th>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= link_to "Edit", edit_job_path(job) %></td>
+      <td><%= link_to "Delete", jobs_path(job), method: "delete" %></td>
+      <td><%= job.title %></td>
+      <td><%= job.company.name %></td>
+      <td><%= job.city %></td>
+      <td><%= job.level_of_interest %></td>
+    </tr>
+  <% end %>
+  </tr>
+</table>

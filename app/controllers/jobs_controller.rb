@@ -3,8 +3,8 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update]
 
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    # @company = Company.find(params[:company_id])
+    @jobs = Job.all
   end
 
   def new
