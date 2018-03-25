@@ -5,8 +5,8 @@ describe "User creates a new contact" do
     it "should create a new contact" do
       category = Category.create!(title: "Development")
       company = Company.create!(name: "Turing")
-      job = company.jobs.create!(category_id: category.id, title: "Developer", level_of_interest: 70, city: "Denver")
-      visit company_path(company)
+      company.jobs.create!(category_id: category.id, title: "Developer", level_of_interest: 70, city: "Denver")
+      visit company_jobs_path(company)
 
       click_link "Create a New Contact"
 
