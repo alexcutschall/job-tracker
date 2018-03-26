@@ -18,10 +18,21 @@ class Job < ApplicationRecord
   end
 
   def self.top_interest_jobs
-    select("MAX(items.price) AS most_expensive, merchants.id, merchants.name")
-    .joins(:items)
-    .group(:id)
-    .order("most_expensive DESC")
-    .take(3)
+    order("level_of_interest DESC")
+  end
+
+  def self.number_of_jobs_top_interest_level
+    highest_interest_number = self.top_interest_jobs.first.level_of_interest
+    where(level_of_interest: highest_interest_number).count
+  end
+
+  def self.number_of_jobs_second_interest_level
+    second_highest_interest_number = self.top_interest_jobs.first.level_of_interest
+    where(level_of_interest: second_highest_interest_number).count
+  end
+
+  def self.number_of_jobs_third_interest_level
+    third_highest_interest_number = self.top_interest_jobs.first.level_of_interest
+    where(level_of_interest: third_highest_interest_number).count
   end
 end
