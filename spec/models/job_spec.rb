@@ -40,6 +40,23 @@ describe Job do
     end
   end
 
+  describe "class methods" do
+    describe ".top_interest_jobs" do
+      it "finds the top three jobs by interest level" do
+        job1 = Job.new(title: "Software", level_of_interest: 90, description: "Wahooo")
+        job2 = Job.new(title: "Tech Support", level_of_interest: 20, description: "Blub")
+        job3 = Job.new(title: "Intern", level_of_interest: 50, description: "So-So")
+        job4 = Job.new(title: "Director", level_of_interest: 80, description: "Awesome Maybe")
+        job5 = Job.new(title: "Manager", level_of_interest: 10, description: "No Way Jose")
+
+        expect(Job.top_interest_jobs.first).to eq(job1)
+        expect(Job.top_interest_jobs[1]).to eq(job4)
+        expect(Job.top_interest_jobs[2]).to eq(job3)
+        expect(Job.top_interest_jobs.count).to eq(3)
+      end
+    end
+  end
+
   # describe "#sort_by_location" do
   #   it "can sort by location" do
   #     category = Category.create!(title: "Management")

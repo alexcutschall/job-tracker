@@ -16,4 +16,12 @@ class Job < ApplicationRecord
   def self.sort_by_interest
     order(level_of_interest: :desc)
   end
+
+  def self.top_interest_jobs
+    select("MAX(items.price) AS most_expensive, merchants.id, merchants.name")
+    .joins(:items)
+    .group(:id)
+    .order("most_expensive DESC")
+    .take(3)
+  end
 end
