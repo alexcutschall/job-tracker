@@ -4,6 +4,10 @@
   <p><%= @job_count[job.level_of_interest] %> Jobs</p><br>
 <% end %>
 
+<% @jobs.count_by_location.each do |city, number_of_jobs| %>
+  <%= link_to city, "/jobs?location=#{city}" %> <%= (number_of_jobs) %>
+<% end %>
+
 <h1>Top Companies by Interest</h1>
 <% @top_companies.each do |company| %>
   <p><%= company.name %></p>
