@@ -12,7 +12,7 @@ describe 'User sees number of jobs for each top interest level' do
       job5 = Job.create!(title: "Manager", level_of_interest: 80, description: "No Way Jose", city: "Denver", category_id: category.id, company_id: company.id)
 
       visit '/dashboard'
-      save_and_open_page
+      
       expect(page).to have_content("2 Jobs")
       expect(page).to have_content("1 Job")
     end

@@ -1,3 +1,15 @@
-<p><%= @top_jobs.first.level_of_interest %><%= @job_count1 %> Jobs</p><br>
-<p><%= @top_jobs[1].level_of_interest %><%= @job_count2 %> Jobs</p><br>
-<p><%= @top_jobs[2].level_of_interest %><%= @job_count3 %> Jobs</p>
+<h1>Jobs by Interest</h1>
+<p><%= @top_jobs.first.level_of_interest %></p>
+<p><%= @job_count[@top_jobs.first.level_of_interest] %> Jobs</p><br>
+
+<p><%= @top_jobs[1].level_of_interest %></p>
+<p><%= @job_count[@top_jobs[1].level_of_interest] %> Jobs</p><br>
+
+<p><%= @top_jobs[2].level_of_interest %></p>
+<p><%= @job_count[@top_jobs[2].level_of_interest] %> Job</p>
+
+<h1>Top Companies by Interest</h1>
+<% @top_companies.each do |company| %>
+  <p><%= company.name %></p>
+  <p><%= company.average_interest.round %></p>
+<% end %>
