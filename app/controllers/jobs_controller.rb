@@ -18,15 +18,16 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new()
+    @job = Job.new
   end
 
   def create
-    @job = Job.create!(job_params)
+    @job = Job.create(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@job.company.name}"
       redirect_to jobs_path
     else
+      flash[:notice] = "Your job doesn't have a title!"
       render :new
     end
   end
