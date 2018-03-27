@@ -1,5 +1,6 @@
 <h3>All Companies</h3>
 
+<div>
 <ul>
   <% @companies.each do |company| %>
   <li class=company_<%= company.id %>>
@@ -11,3 +12,4 @@
 </ul>
 
 <%= link_to "Create a New Company", new_company_path %><br>
+</div>
