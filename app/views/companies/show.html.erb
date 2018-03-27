@@ -15,5 +15,6 @@ Existing Contacts:
   data: {confirm:"Really delete this contact?"}%>
 <% end %>
 
-<%= link_to "Create a New Job", new_company_job_path(@company) %>
-<%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %>
+<%= link_to "Create a New Job", new_company_job_path(@company) %><br>
+<%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %><br>
+<%= link_to "Back to All Companies", companies_path%>

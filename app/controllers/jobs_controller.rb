@@ -18,7 +18,14 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @job = Job.new
+      @job.company_id = @company.id
+      render :new_company_job
+    else
+      @job = Job.new
+    end
   end
 
   def create
@@ -60,7 +67,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id, :company_id)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city)
   end
 
   def set_job
