@@ -10,9 +10,9 @@ describe 'User sees one category and associated jobs' do
       company.jobs.create!(title: 'QA Analyst', level_of_interest: 70, city: 'New York City', category_id: category.id)
 
       visit categories_path
-      click_link "#{category.jobs.count} Jobs"
+      click_link category.title
 
-      expect(current_path).to eq("/jobs?category=#{category.title}")
+      expect(page).to have_content("#{category.title} Jobs")
       expect(page).to have_content('QA Analyst')
       expect(page).to have_content('Developer')
     end
