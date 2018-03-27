@@ -12,7 +12,7 @@ describe "User creates a new job" do
     fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
 
-    click_button "Create"
+    click_button "Submit"
 
     expect(current_path).to eq("/jobs")
     expect(page).to have_content("ESPN")
