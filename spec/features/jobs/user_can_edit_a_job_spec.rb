@@ -18,7 +18,7 @@ describe "User edits a job" do
     fill_in "job[description]", with: "Leading an engineering team"
     fill_in "job[level_of_interest]", with: 80
 
-    click_button "Update Job"
+    click_button "Submit"
 
     expect(page).to have_content(category.title)
     expect(page).to have_content("Senior Engineer")
