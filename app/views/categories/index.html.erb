@@ -1,13 +1,19 @@
-<h3>Job Categories</h3>
-<%= link_to "Create A New Category", new_category_path %>
+<div class="page-header">
+  <h1>Job Categories</h1>
+  <h4><%= link_to "Create A New Category", new_category_path %></h4>
+</div>
 
-<ul>
-  <% @categories.each do |category| %>
-  <li class=category_<%= category.id %>>
-    <%= link_to "Edit", edit_category_path(category) %>
-    <%= link_to "Delete", category_path(category), method: "delete", data: {confirm: "Are you sure you want to delete this category?"} %>
-    <%= category.title %>
-    <%= link_to "#{category.jobs.count} Jobs", category_path(category) %>:
-  </li>
-  <% end %>
-</ul>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+      <li class="list-group-item"<%= category.id %>>
+        <%= link_to category.title, category_path(category) %>
+        <%= link_to "#{category.jobs.count} Jobs", category_path(category) %>:
+        <%= link_to "Edit", edit_category_path(category), class: "btn btn-primary btn-sm" %>
+        <%= link_to "Delete", category_path(category), method: "delete", data: {confirm: "Are you sure you want to delete this category?"}, class: "btn btn-primary btn-sm" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div

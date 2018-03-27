@@ -1,27 +1,36 @@
 <%= form_for [@company, @job] do |f| %>
-<p>
-  <%= f.label :company %>
-  <%= f.collection_select :company_id, Company.all, :id, :name %>
-</p>
-  <p>
+  <div class="form-group">
+    <%= f.label :company %>
+    <%= f.collection_select :company_id, Company.all, :id, :name %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.all, :id, :title %>
-  </p>
-<a href="/categories/new">Add a New Category</a>
-<p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</p>
-<p>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-</p>
-  <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %>
-<p>
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-<p>
-  <%= f.submit %>
-</p>
+    <a href="/categories/new">Add a New Category</a>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :level_of_interest %>
+    <%= f.number_field :level_of_interest, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 <% end %>
