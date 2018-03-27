@@ -12,7 +12,7 @@ describe "User creates a new job" do
     fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
 
-    click_button "Create"
+    click_button "Submit"
 
     expect(current_path).to eq("/jobs")
     expect(page).to have_content("ESPN")
@@ -20,4 +20,19 @@ describe "User creates a new job" do
     expect(page).to have_content("80")
     expect(page).to have_content("Denver")
   end
-end
+
+  scenario "a user gets error when no title is inputted" do
+    category = Category.create!(title: "Management")
+    company = Company.create!(name: "ESPN")
+    visit new_company_job_path(company)
+
+    select(category.title, :from => 'Category')
+    fill_in "job[description]", with: "So fun!"
+    fill_in "job[level_of_interest]", with: 80
+    fill_in "job[city]", with: "Denver"
+
+    click_button "Create"
+    expect(current_path).to eq("/jobs/new")
+    expect(page).to have_content("Your job doesn't have a title!")
+    end
+  end

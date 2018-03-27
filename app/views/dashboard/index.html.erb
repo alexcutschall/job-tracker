@@ -1,12 +1,12 @@
 <h1>Jobs by Interest</h1>
-<p><%= @top_jobs.first.level_of_interest %></p>
-<p><%= @job_count[@top_jobs.first.level_of_interest] %> Jobs</p><br>
+<% @top_jobs.each do |job| %>
+  <p><%= job.level_of_interest %></p>
+  <p><%= @job_count[job.level_of_interest] %> Jobs</p><br>
+<% end %>
 
-<p><%= @top_jobs[1].level_of_interest %></p>
-<p><%= @job_count[@top_jobs[1].level_of_interest] %> Jobs</p><br>
-
-<p><%= @top_jobs[2].level_of_interest %></p>
-<p><%= @job_count[@top_jobs[2].level_of_interest] %> Job</p>
+<% @jobs.count_by_location.each do |city, number_of_jobs| %>
+  <%= link_to city, "/jobs?location=#{city}" %> <%= (number_of_jobs) %>
+<% end %>
 
 <h1>Top Companies by Interest</h1>
 <% @top_companies.each do |company| %>
