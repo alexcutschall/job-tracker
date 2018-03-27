@@ -18,21 +18,15 @@ class Job < ApplicationRecord
   end
 
   def self.top_interest_jobs
-    order("level_of_interest DESC")
+    select(:level_of_interest)
+    .distinct
+    .order("level_of_interest DESC")
+    .take(3)
   end
 
-  def self.number_of_jobs_top_interest_level
-    highest_interest_number = self.top_interest_jobs.first.level_of_interest
-    where(level_of_interest: highest_interest_number).count
-  end
-
-  def self.number_of_jobs_second_interest_level
-    second_highest_interest_number = self.top_interest_jobs.first.level_of_interest
-    where(level_of_interest: second_highest_interest_number).count
-  end
-
-  def self.number_of_jobs_third_interest_level
-    third_highest_interest_number = self.top_interest_jobs.first.level_of_interest
-    where(level_of_interest: third_highest_interest_number).count
+  def self.number_of_jobs_by_interest_level
+    order(:level_of_interest)
+    .group(:level_of_interest)
+    .count
   end
 end

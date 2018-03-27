@@ -1,3 +1,8 @@
-<p><%= @top_jobs.first.level_of_interest %><%= @job_count1 %> Jobs</p><br>
-<p><%= @top_jobs[1].level_of_interest %><%= @job_count2 %> Jobs</p><br>
-<p><%= @top_jobs[2].level_of_interest %><%= @job_count3 %> Jobs</p>
+<p><%= @top_jobs.first.level_of_interest %></p>
+<p><%= @job_count[@top_jobs.first.level_of_interest] %> Jobs</p><br>
+
+<p><%= @top_jobs[1].level_of_interest %></p>
+<p><%= @job_count[@top_jobs[1].level_of_interest] %> Jobs</p><br>
+
+<p><%= @top_jobs[2].level_of_interest %></p>
+<p><%= @job_count[@top_jobs[2].level_of_interest] %> Job</p>

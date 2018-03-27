@@ -51,9 +51,9 @@ describe Job do
         job4 = Job.create!(title: "Director", level_of_interest: 80, description: "Awesome Maybe", city: "Denver", category_id: category.id, company_id: company.id)
         job5 = Job.create!(title: "Manager", level_of_interest: 10, description: "No Way Jose", city: "Denver", category_id: category.id, company_id: company.id)
 
-        expect(Job.top_interest_jobs.first).to eq(job1)
-        expect(Job.top_interest_jobs[1]).to eq(job4)
-        expect(Job.top_interest_jobs[2]).to eq(job3)
+        expect(Job.top_interest_jobs.first.level_of_interest).to eq(job1.level_of_interest)
+        expect(Job.top_interest_jobs[1].level_of_interest).to eq(job4.level_of_interest)
+        expect(Job.top_interest_jobs[2].level_of_interest).to eq(job3.level_of_interest)
         expect(Job.top_interest_jobs.count).to eq(3)
       end
     end
