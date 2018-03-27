@@ -9,3 +9,7 @@
 <p><%= @job_count[@top_jobs[2].level_of_interest] %> Job</p>
 
 <h1>Top Companies by Interest</h1>
+<% @top_companies.each do |company| %>
+  <p><%= company.name %></p>
+  <p><%= company.average_interest.round %></p>
+<% end %>

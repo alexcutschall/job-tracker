@@ -35,7 +35,7 @@ describe Company do
   end
 
   describe 'class methods' do
-    describe '.avg_interest_level' do
+    describe '.top_three' do
       it "finds the top three companies' average job interest level" do
         category = Category.create!(title: "Tech")
         company1 = Company.create!(name: "Comcast")
@@ -48,9 +48,9 @@ describe Company do
         Job.create!(title: "Director", level_of_interest: 80, description: "Awesome Maybe", city: "Denver", category_id: category.id, company_id: company3.id)
         Job.create!(title: "Manager", level_of_interest: 10, description: "No Way Jose", city: "Denver", category_id: category.id, company_id: company4.id)
 
-        expect(Job.avg_interest_level[company1.name]).to eq(90)
-        expect(Job.avg_interest_level[company2.name]).to eq(40)
-        expect(Job.avg_interest_level[company3.name]).to eq(80)
+        expect(Company.top_three.first.name).to eq(company1.name)
+        expect(Company.top_three[1].name).to eq(company3.name)
+        expect(Company.top_three[2].name).to eq(company2.name)
       end
     end
   end

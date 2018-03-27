@@ -18,7 +18,7 @@ describe 'User sees top three companies by interest level' do
 
       expect(page).to have_content(company1.name)
       expect(page).to have_content(company2.name)
-      expect(page).to have_content(company3.namet)
+      expect(page).to have_content(company3.name)
       expect(page).to_not have_content(company4.name)
     end
   end
