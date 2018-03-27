@@ -7,7 +7,11 @@
   <div class="row">
     <ul class="list-group">
       <% @companies.each do |company| %>
+<<<<<<< HEAD
       <li class="list-group-item" ><%= company.id %>
+=======
+      <li class="list-group-item company_<%= company.id %>">
+>>>>>>> efade28b9af37f1ce7fc19ae71e3da7dea44d7f5
         <%= link_to company.name, company_path(company) %>
         <%= link_to "Edit", edit_company_path(company), class: "btn btn-primary btn-sm" %>
         <%= link_to "Delete", company_path(company), method: "delete", data: {confirm: "Are you sure you want to delete #{company.name}?"}, class: "btn btn-primary btn-sm" %>

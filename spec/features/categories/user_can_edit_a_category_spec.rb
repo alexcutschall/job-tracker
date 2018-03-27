@@ -11,7 +11,7 @@ describe 'User edits an existing category' do
         expect(current_path).to eq(edit_category_path(category))
 
         fill_in 'category[title]', with: 'Finance'
-        click_button 'Update'
+        click_button 'Submit'
 
         expect(current_path).to eq(categories_path)
         expect(page).to have_content('Finance')
