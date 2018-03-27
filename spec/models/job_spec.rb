@@ -57,17 +57,16 @@ describe Job do
         expect(Job.top_interest_jobs.count).to eq(3)
       end
     end
-    describe ".sort_by_location" do
+    describe "#sort_by_location" do
       it "can sort by location" do
         category = Category.create!(title: "Management")
         company = Company.create!(name: "Disney")
-        job = Job.create!(title: "Animation Developer", level_of_interest: 5, description: "Wahooo", city: "Denver", company_id: company.id, category_id: category.id)
-        job = Job.create!(title: "Senior Developer", level_of_interest: 1, description: "Wahooo", city: "Minneapolis", company_id: company.id, category_id: category.id)
-        job = Job.create!(title: "Junior Developer", level_of_interest: 5, description: "Wahooo", city: "Seattle", company_id: company.id, category_id: category.id)
+        job_1 = Job.create!(title: "Animation Developer", level_of_interest: 5, description: "Wahooo", city: "Denver", company_id: company.id, category_id: category.id)
+        job_2 = Job.create!(title: "Senior Developer", level_of_interest: 1, description: "Wahooo", city: "Minneapolis", company_id: company.id, category_id: category.id)
+        job_3 = Job.create!(title: "Junior Developer", level_of_interest: 5, description: "Wahooo", city: "Seattle", company_id: company.id, category_id: category.id)
+        job.sort_by_location
 
-        click_link "City"
-
-        expect(page).to have_content(comment_1)
+        expect(job.first).to have_content(comment_1)
         expect(page).to have_content(comment_2)
       end
     end
