@@ -1,9 +1,10 @@
-<h3>Post a comment</h3>
+<h2>Post a Comment</h2>
+
 <%= form_for [@job, @job_comment] do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 <% end %>
