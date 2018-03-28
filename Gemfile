@@ -42,6 +42,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'launchy'
+  gem 'orderly'
   gem 'simplecov'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
