@@ -2,6 +2,10 @@
   <h1>Create A New Company Here!</h1>
 </div>
 
-<%= render partial: "form" %>
+<%= render partial: "partial/flash" %>
 
-<%= link_to "<< Back to All Companies", companies_path%>
+<div class="navigation">
+  <%= link_to "<< Back to All Companies", companies_path%>
+</div>
+
+<%= render partial: "form" %>

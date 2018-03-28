@@ -1,20 +1,26 @@
-<%= form_for [@company, @contact] do |f| %>
+<div class="navigation">
+  <%= link_to "<< Back to #{@company.name}", company_path(@company) %>
+</div>
+
+<div class="contact-form">
+  <%= form_for [@company, @contact] do |f| %>
   <div class="form-group">
-    <%= f.label :full_name %>
+    <%= f.label :full_name %><br>
     <%= f.text_field :full_name %>
   </div>
 
   <div class="form-group">
-    <%= f.label :role %>
+    <%= f.label :role %><br>
     <%= f.text_field :position %>
   </div>
 
   <div class="form-group">
-    <%= f.label :email %>
+    <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  
+
   <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-<% end %>
+  <% end %>
+</div>

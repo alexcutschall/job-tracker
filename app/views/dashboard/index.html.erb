@@ -1,15 +1,28 @@
-<h1>Jobs by Interest</h1>
-<% @top_jobs.each do |job| %>
-  <p><%= job.level_of_interest %></p>
-  <p><%= @job_count[job.level_of_interest] %> Jobs</p><br>
-<% end %>
+<div class="page-header">
+  <h1>Wecome to Job Tracker!</h1>
+</div>
 
-<% @jobs.count_by_location.each do |city, number_of_jobs| %>
-  <%= link_to city, "/jobs?location=#{city}" %> <%= (number_of_jobs) %>
-<% end %>
+<div class="flex-box">
+  <div class="box">
+    <h2><strong>Jobs by Interest:</strong></h2>
+    <% @top_jobs.each do |job| %>
+    <%= job.level_of_interest %>
+    (<%= @job_count[job.level_of_interest] %> Job)<br>
+    <% end %>
+  </div><br>
 
-<h1>Top Companies by Interest</h1>
-<% @top_companies.each do |company| %>
-  <p><%= company.name %></p>
-  <p><%= company.average_interest.round %></p>
-<% end %>
+  <div class="box">
+    <h2><strong>Top Companies by Interest:</strong></h2>
+    <% @top_companies.each do |company| %>
+    <%= company.name %>
+    <%= company.average_interest.round %><br>
+    <% end %>
+  </div>
+
+  <div class="box">
+    <h2><strong>Jobs by Location:</strong></h2>
+    <% @jobs.count_by_location.each do |city, number_of_jobs| %>
+    <%= link_to city, "/jobs?location=#{city}" %> (<%= number_of_jobs %>)<br>
+    <% end %>
+  </div>
+</div>
