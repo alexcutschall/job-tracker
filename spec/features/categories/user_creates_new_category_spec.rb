@@ -9,7 +9,7 @@ describe "user creates a new category" do
 
         expect(current_path).to eq(new_category_path)
 
-        fill_in "category[title"], with: "New Category Title!"
+        fill_in "category[title]", with: "New Category Title!"
         click_on "Submit"
 
         expect(current_path).to eq("/categories/#{Category.last.id}")
