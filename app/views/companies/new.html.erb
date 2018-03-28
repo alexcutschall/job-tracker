@@ -4,6 +4,8 @@
 
 <%= render partial: "partial/flash" %>
 
-<%= render partial: "form" %>
+<div class="navigation">
+  <%= link_to "<< Back to All Companies", companies_path%>
+</div>
 
-<%= link_to "<< Back to All Companies", companies_path%>
+<%= render partial: "form" %>

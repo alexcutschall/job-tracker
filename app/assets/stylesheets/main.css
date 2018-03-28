@@ -83,13 +83,6 @@ td {
   font-size: 20px;
 }
 
-.jobs {
-  float: left;
-  border: solid;
-  padding: 10px 70px;
-  margin: 40px 280px
-}
-
 .contacts-comments {
   text-align: center;
   font-size: 30px
@@ -141,4 +134,17 @@ td {
 .contact-form {
   margin: 20px 550px;
   font-size: 30px
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+.box {
+  font-size: 30px;
+  margin: 25px 60px;
+  text-align: center
 }
