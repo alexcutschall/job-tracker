@@ -17,11 +17,7 @@
   <% @jobs.each do |job| %>
     <tr>
       <td scope="row"><%= link_to job.title, job_path(job) %></td>
-      <% if job.category != nil %>
-        <td scope="row"><%= link_to job.category.title, "/jobs?category=#{job.category.id}" %></td>
-      <% else %>
-        <td scope="row"> </td>
-      <% end %>
+      <td scope="row"><%= link_to job.category.title, "/jobs?category=#{job.category.id}" %></td>
       <td scope="row"><%= job.company.name %></td>
       <td scope="row"><%= link_to job.city, "/jobs?location=#{job.city}" %></td>
       <td scope="row"><%= job.level_of_interest %></td>
