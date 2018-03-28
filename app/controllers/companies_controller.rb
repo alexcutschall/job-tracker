@@ -14,6 +14,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} added!"
       redirect_to company_path(@company)
     else
+      flash[:notice] = "That's already a company name!"
       render :new
     end
   end
@@ -33,6 +34,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} updated!"
       redirect_to company_path(@company)
     else
+      flash[:notice] = "You can't leave the name blank!"
       render :edit
     end
   end
