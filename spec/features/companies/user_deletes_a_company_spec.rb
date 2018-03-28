@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "User deletes existing company" do
   scenario "a user can delete a company" do

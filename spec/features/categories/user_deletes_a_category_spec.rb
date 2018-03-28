@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe 'User deletes existing category' do
-  describe 'they link from the index page' do
-    it 'displays all categories without the deleted entry' do
-      category = Category.create(title: 'Finance')
+describe "User deletes existing category" do
+  describe "they link from the index page" do
+    it "displays all categories without the deleted entry" do
+      category = Category.create(title: "Finance")
       visit categories_path
 
       within(".category_#{category.id}") do
-        click_link 'Delete'
+        click_link "Delete"
       end
 
       expect(current_path).to eq(categories_path)

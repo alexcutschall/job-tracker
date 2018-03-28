@@ -12,7 +12,7 @@ describe "User edits a job" do
 
     visit edit_company_job_path(company, job)
 
-    select(category.title, :from => 'Category')
+    select(category.title, :from => "Category")
     fill_in "job[title]", with: "Senior Engineer"
     fill_in "job[city]", with: "Seattle"
     fill_in "job[description]", with: "Leading an engineering team"

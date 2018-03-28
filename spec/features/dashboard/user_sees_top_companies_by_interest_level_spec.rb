@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe 'User sees top three companies by interest level' do
-  describe 'user visits dashboard page' do
-    it 'shows top three company names by interest level' do
+describe "User sees top three companies by interest level" do
+  describe "user visits dashboard page" do
+    it "shows top three company names by interest level" do
       category = Category.create!(title: "Tech")
       company1 = Company.create!(name: "Comcast")
       company2 = Company.create!(name: "Health Grades")
@@ -14,7 +14,7 @@ describe 'User sees top three companies by interest level' do
       Job.create!(title: "Director", level_of_interest: 80, description: "Awesome Maybe", city: "Denver", category_id: category.id, company_id: company3.id)
       Job.create!(title: "Manager", level_of_interest: 10, description: "No Way Jose", city: "Denver", category_id: category.id, company_id: company4.id)
 
-      visit '/dashboard'
+      visit "/dashboard"
 
       expect(page).to have_content(company1.name)
       expect(page).to have_content(company2.name)
