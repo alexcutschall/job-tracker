@@ -18,5 +18,20 @@ describe "User edits an existing category" do
         expect(page).to_not have_content("Education")
       end
     end
+    scenario "a user creates a category that already exists" do
+      category = Category.create(title: "Engineer")
+      category2 = Category.create!(title: "Education")
+      visit categories_path
+
+      within(".category_#{category.id}") do
+        click_link "Edit"
+      end
+
+      fill_in "category[title]", with: "Education"
+      click_button "Submit"
+
+      expect(current_path).to eq("/categories/#{category.id}")
+      expect(page).to have_content("Sorry that category name already exists!")
+    end
   end
 end

@@ -16,5 +16,16 @@ describe "user creates a new category" do
         expect(page).to have_content("New Category Title!")
       end
     end
+    scenario "a user creates a category that already exists" do
+      company = Category.create(title: "Engineer")
+      visit new_category_path
+
+      fill_in "category[title]", with: "Engineer"
+      click_button "Submit"
+
+      expect(current_path).to eq("/categories")
+      expect(page).to have_content("Sorry that category name already exists!")
+      expect(Category.count).to eq(1)
+    end
   end
 end

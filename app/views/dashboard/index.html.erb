@@ -15,7 +15,7 @@
     <h2><strong>Top Companies by Interest:</strong></h2>
     <% @top_companies.each do |company| %>
     <%= company.name %>
-    <%= company.average_interest.round %><br>
+    (<%= company.average_interest.round %>)<br>
     <% end %>
   </div>
 

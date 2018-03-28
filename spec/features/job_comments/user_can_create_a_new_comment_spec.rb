@@ -8,9 +8,9 @@ describe JobComment do
       job = Job.create!(title: "Animation Developer", level_of_interest: 90, description: "Wahooo", city: "Denver", company_id: company.id, category_id: category.id)
 
       visit job_path(job)
-      
-      within(".new_job_comment") do
-        fill_in "Body", with: "This is a test comment!"
+
+      within(".comment-form") do
+        fill_in "job_comment[body]", with: "This is a test comment!"
       end
       click_on "Submit"
 
