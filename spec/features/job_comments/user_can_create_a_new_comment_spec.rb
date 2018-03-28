@@ -9,8 +9,8 @@ describe JobComment do
 
       visit job_path(job)
 
-      within(".new_job_comment") do
-        fill_in "body", with: "This is a test comment!"
+      within(".comment-form") do
+        fill_in "job_comment[body]", with: "This is a test comment!"
       end
       click_on "Submit"
 

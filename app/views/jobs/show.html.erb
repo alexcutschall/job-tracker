@@ -14,7 +14,7 @@
 
 
 <div class="info">
-  <strong>Category:</strong>  <%= if @job.category.title != nil %><br>
+  <strong>Category:</strong>  <%= @job.category.title unless @job.category.title.nil? %><br>
   <strong>Description:</strong>  <%= @job.description %><br>
   <strong>Level of Interest:</strong>  <%= @job.level_of_interest %><br>
   <strong>City:</strong>  <%= @job.city %><br>

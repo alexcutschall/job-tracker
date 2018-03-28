@@ -18,14 +18,10 @@ class JobsController < ApplicationController
   end
 
   def new
-    if params[:company_id]
-      @company = Company.find(params[:company_id])
-      @job = Job.new
-      @job.company_id = @company.id
-      render :new_company_job
-    else
-      @job = Job.new
-    end
+    @company = Company.find(params[:company_id])
+    @job = Job.new
+    @job.company_id = @company.id
+    render :new_company_job
   end
 
   def create
