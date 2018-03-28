@@ -2,25 +2,32 @@
   <h1>All Jobs for <strong><%= @company.name %></strong></h1>
 </div>
 
-<div class="jobs">
-  <h2>Jobs:</h2>
-  <h4><% @company.jobs.each do |job| %></h4>
-  <h4><%= link_to job.title, job_path(job) %></a><br></h4>
-  <% end %>
+<%= render partial: "partial/flash" %>
+
+<div class="navigation">
+  <%= link_to "<< Back to All Companies", companies_path%>
 </div>
+
+<div class="buttons">
+  <%= link_to "Create a New Job", new_company_job_path(@company), class: "btn btn-primary btn-sm" %>
+</div>
+
+<div class="info">
+  <strong>Jobs:</strong><br>
+  <% @company.jobs.each do |job| %>
+  <%= link_to job.title, job_path(job) %><br>
+  <% end %>
+</div><br><br>
 
 <div class="contacts-comments">
-  <h3>Existing Contacts:</h3>
+  <strong>Existing Contacts:</strong><br>
   <% @company.contacts.each do |contact| %>
-    <h4>Name:  <%= contact.full_name %></h4>
-    <h4>Position:  <%= contact.position %></h4>
-    <h4>Email:  <%= contact.email %></h4>
-    <h4><%= link_to "Edit Contact", edit_company_contact_path(@company, contact) %></h4>
-    <h4><%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete",
-    data: {confirm:"Really delete this contact?"}%></h4>
+    Name:  <%= contact.full_name %><br>
+    Position:  <%= contact.position %><br>
+    Email:  <%= contact.email %><br>
+    <%= link_to "Edit Contact", edit_company_contact_path(@company, contact), class: "btn btn-primary btn-sm" %></h4>
+    <%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete", class: "btn btn-primary btn-sm",
+    data: {confirm:"Really delete this contact?"}%><br>
   <% end %>
+  <%= link_to "Create a New Contact", new_company_contact_path(@company, @contact), class: "btn btn-primary btn-sm" %>
 </div>
-
-<h4><%= link_to "Create a New Job", new_company_job_path(@company) %></h4>
-<h3><%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %></h3>
-<h4><%= link_to "<< Back to All Companies", companies_path%></h4>

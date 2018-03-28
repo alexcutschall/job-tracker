@@ -7,9 +7,14 @@
 
 <%= render partial: "partial/navigation" %>
 
+<%= render partial: "partial/flash" %>
+
+<div class="navigation">
+  <%= link_to "<< Back to All Categories", categories_path %>
+</div>
 
 <% if @jobs.first.nil?  %>
-  <h3>There aren't any jobs in this category!</h3>
+  <div class="notice">There aren't any jobs in this category!</div>
 <% else %>
   <div class="page-header">
     <h1><%= @jobs.first.category.title %> Jobs</h1>
