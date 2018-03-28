@@ -57,15 +57,15 @@ describe Job do
         expect(Job.top_interest_jobs.count).to eq(3)
       end
     end
-    describe "#sort_by_location" do
-      it "can sort by location" do
+    describe ".sort_by_location" do
+      it "can sort jobs by location" do
         category = Category.create!(title: "Management")
         company = Company.create!(name: "Disney")
         job_1 = Job.create!(title: "Animation Developer", level_of_interest: 5, description: "Wahooo", city: "Denver", company_id: company.id, category_id: category.id)
         job_2 = Job.create!(title: "Senior Developer", level_of_interest: 1, description: "Wahooo", city: "Minneapolis", company_id: company.id, category_id: category.id)
         job_3 = Job.create!(title: "Junior Developer", level_of_interest: 5, description: "Wahooo", city: "Seattle", company_id: company.id, category_id: category.id)
         Job.sort_by_location
-
+        
         expect(Job.sort_by_location[0].title).to eq(job_1.title)
         expect(Job.sort_by_location[1].title).to eq(job_2.title)
         expect(Job.sort_by_location[2].title).to eq(job_3.title)
@@ -81,8 +81,8 @@ describe Job do
         Job.sort_by_interest
 
         expect(Job.sort_by_interest[0].title).to eq(job_1.title)
-        expect(Job.sort_by_location[1].title).to eq(job_2.title)
-        expect(Job.sort_by_location[2].title).to eq(job_3.title)
+        expect(Job.sort_by_interest[1].title).to eq(job_2.title)
+        expect(Job.sort_by_interest[2].title).to eq(job_3.title)
       end
     end
   end

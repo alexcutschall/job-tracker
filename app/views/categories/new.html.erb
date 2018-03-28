@@ -2,6 +2,10 @@
   <h1>Add A Category Here!</h1>
 </div>
 
+<%= render partial: "partial/flash" %>
+
+<div class="navigation">
+  <%= link_to "<< Back to All Categories", categories_path%>
+</div>
+
 <%= render partial: "form" %>
-<br>
-<%= link_to "<< Back to All Categories", categories_path%>

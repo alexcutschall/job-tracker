@@ -2,6 +2,10 @@
   <h1>Edit <%= @company.name %> Here!</h1>
 </div>
 
+<%= render partial: "partial/flash" %>
+
+<div class="navigation">
+  <%= link_to "<< Back to All Companies", companies_path%>
+</div>
+
 <%= render partial: "form" %>
-<br>
-<%= link_to "<< Back to All Companies", companies_path%>

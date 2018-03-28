@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :job_comments
   end
+  
   resources :categories
 
   resources :dashboard

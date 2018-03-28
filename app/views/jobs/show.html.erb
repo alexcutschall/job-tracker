@@ -1,31 +1,33 @@
-Title: <%= @job.title %>
-<br>
+<div class="page-header">
+  <h1><%= @job.title %></h1>
+</div>
 
-<% if @job.category != nil %>
-  Category: <%= @job.category.title %><br>
-<% end %>
+<div class="navigation">
+  <%= link_to "<< Back to #{@job.company.name} Jobs", company_path(@job.company.id)%>
+</div>
 
-Description: <%= @job.description %>
-<br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+<div class="buttons">
+  <%= link_to "Edit", edit_company_job_path(@job.company, @job), class: "btn btn-primary btn-sm" %>
+  <%= link_to "Delete", job_path(@job), method: "delete", data: {confirm:"Really delete this job?"}, class: "btn btn-primary btn-sm" %><br>
+</div><br>
 
-City: <%= @job.city %>
-<br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company.id) %>
+<div class="info">
+  <strong>Category:</strong>  <%= if @job.category.title != nil %><br>
+  <strong>Description:</strong>  <%= @job.description %><br>
+  <strong>Level of Interest:</strong>  <%= @job.level_of_interest %><br>
+  <strong>City:</strong>  <%= @job.city %><br>
+  <strong>Company:</strong>  <%= link_to @job.company.name, company_path(@job.company.id) %>
+</div><br><br>
 
-Notes:<br />
-
-<%= render partial: "job_comments/form" %>
-
-<% @job.comments_ordered.each do |comment| %>
-  <%= comment.created_at %>
-  <%= comment.body %><br>
-<% end %>
-
-<br /><%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
-<%= link_to "Delete", job_path(@job), method: "delete",
-data: {confirm:"Really delete this job?"} %><br>
-<%= link_to "<< Back to #{@job.company.name} Jobs", company_path(@job.company.id)%>
+<div class="contacts-comments">
+  <strong>Notes:</strong>
+  <%= render partial: "job_comments/form" %>
+  <% @job.comments_ordered.each do |comment| %>
+    <div class="comment">
+      <%= comment.created_at %>
+      <%= comment.body %><br>
+    </div>
+  <% end %>
+</div>

@@ -2,5 +2,10 @@
   <h1>Edit <%= @job.title %> Job Here!<h1>
 </div>
 
+<%= render partial: "partial/flash" %>
+
+<div class="navigation">
+  <%= link_to "<< Back to Job", job_path(@job)%>
+</div>
+
 <%= render partial: "form" %>
-<%= link_to "<< Back to Job", job_path(@job)%>
