@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "User edits an existing company" do
   scenario "a user can edit a company" do

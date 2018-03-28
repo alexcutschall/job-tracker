@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "User sees all companies" do
   scenario "a user sees all the companies" do

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "User creates a new job" do
   scenario "a user can create a new job" do
@@ -6,7 +6,7 @@ describe "User creates a new job" do
     company = Company.create!(name: "ESPN")
     visit new_company_job_path(company)
 
-    select(category.title, :from => 'Category')
+    select(category.title, :from => "Category")
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
@@ -23,7 +23,7 @@ describe "User creates a new job" do
     company = Company.create!(name: "ESPN")
     visit new_company_job_path(company)
 
-    select(category.title, :from => 'Category')
+    select(category.title, :from => "Category")
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
@@ -37,7 +37,7 @@ describe "User creates a new job" do
       company = Company.create!(name: "ESPN")
       visit new_job_path
 
-      select(category.title, :from => 'Category')
+      select(category.title, :from => "Category")
       fill_in "job[description]", with: "So fun!"
       fill_in "job[level_of_interest]", with: 80
       fill_in "job[city]", with: "Denver"

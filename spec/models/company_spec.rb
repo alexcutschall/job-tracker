@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Company do
   describe "validations" do
@@ -34,8 +34,8 @@ describe Company do
     end
   end
 
-  describe 'class methods' do
-    describe '.top_three' do
+  describe "class methods" do
+    describe ".top_three" do
       it "finds the top three companies' average job interest level" do
         category = Category.create!(title: "Tech")
         company1 = Company.create!(name: "Comcast")

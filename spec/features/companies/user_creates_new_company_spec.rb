@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "User creates a new company" do
   scenario "a user can create a new company" do
