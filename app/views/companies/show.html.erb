@@ -1,20 +1,26 @@
-<h1>All Jobs for <strong><%= @company.name %></strong></h1><br>
+<div class="page-header">
+  <h1>All Jobs for <strong><%= @company.name %></strong></h1>
+</div>
 
-<% @company.jobs.each do |job| %>
-  <%= link_to job.title, job_path(job) %></a><br>
-<% end %>
+<div class="jobs">
+  <h2>Jobs:</h2>
+  <h4><% @company.jobs.each do |job| %></h4>
+  <h4><%= link_to job.title, job_path(job) %></a><br></h4>
+  <% end %>
+</div>
 
-Existing Contacts:
-<br>
-<% @company.contacts.each do |contact| %>
-  <%= contact.full_name %>
-  <%= contact.position %>
-  <%= contact.email %><br>
-  <%= link_to "Edit Contact", edit_company_contact_path(@company, contact) %>
-  <%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete",
-  data: {confirm:"Really delete this contact?"}%>
-<% end %>
+<div class="contacts-comments">
+  <h3>Existing Contacts:</h3>
+  <% @company.contacts.each do |contact| %>
+    <h4>Name:  <%= contact.full_name %></h4>
+    <h4>Position:  <%= contact.position %></h4>
+    <h4>Email:  <%= contact.email %></h4>
+    <h4><%= link_to "Edit Contact", edit_company_contact_path(@company, contact) %></h4>
+    <h4><%= link_to "Delete Contact", company_contact_path(@company, contact), method: "delete",
+    data: {confirm:"Really delete this contact?"}%></h4>
+  <% end %>
+</div>
 
-<%= link_to "Create a New Job", new_company_job_path(@company) %><br>
-<%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %><br>
-<%= link_to "<< Back to All Companies", companies_path%>
+<h4><%= link_to "Create a New Job", new_company_job_path(@company) %></h4>
+<h3><%= link_to "Create a New Contact", new_company_contact_path(@company, @contact) %></h3>
+<h4><%= link_to "<< Back to All Companies", companies_path%></h4>

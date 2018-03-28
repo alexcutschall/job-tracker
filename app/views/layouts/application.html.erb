@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JobTracker</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render partial: "partial/navigation" %>
+  <head>
+    <title>JobTracker</title>
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "main.css" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render partial: "partial/navigation" %>
+  <%= yield %>
   <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %>
-<%= yield %>
-
-</body>
+  <%= content_tag :div, msg, class: name %>
+  <% end %>
+  </body>
 </html>

@@ -8,7 +8,7 @@ describe "User creates a new company" do
     click_button "Submit"
 
     expect(current_path).to eq("/companies/#{Company.last.id}")
-    expect(page).to have_content("ESPN")
+    expect(page).to have_content("ESPN".capitalize)
     expect(Company.count).to eq(1)
   end
 end
