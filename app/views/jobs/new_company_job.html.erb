@@ -1,4 +1,11 @@
-<%= form_for [@company, @job] do |f| %>
+<%= render partial: "partial/flash" %>
+
+<div class="navigation">
+  <%= link_to "<< Back to #{@company.name}", company_path(@company) %>
+</div>
+
+<div class="form">
+  <%= form_for [@company, @job] do |f| %>
   <div class="form-group">
     <%= f.label :company %>
     <%= f.select :company_id, {@company.name => @company.id}, :selected => @company.id %>
@@ -33,4 +40,5 @@
   <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-<% end %>
+  <% end %>
+</div>

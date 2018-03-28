@@ -9,7 +9,7 @@ describe "User edits an existing company" do
     click_button "Submit"
 
     expect(current_path).to eq("/companies/#{Company.last.id}")
-    expect(page).to have_content("EA Sports")
-    expect(page).to_not have_content("ESPN")
+    expect(page).to have_content("EA Sports".titleize)
+    expect(page).to_not have_content("ESPN".capitalize)
   end
 end

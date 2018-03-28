@@ -13,7 +13,7 @@ describe "User sees number of jobs for each top interest level" do
 
       visit "/dashboard"
 
-      expect(page).to have_content("2 Jobs")
+      expect(page).to have_content("2 Job")
       expect(page).to have_content("1 Job")
     end
   end
